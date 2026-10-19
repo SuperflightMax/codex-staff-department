@@ -14,7 +14,7 @@ This folder is the working memory of the project architect, not a competing sour
 
 ## Authority and write boundary
 - Max makes final product/organizational decisions; architect maintains design context and consistency of project documentation. CTO/others may maintain documentation only under delegated authority.
-- Architect may maintain files **inside `architect/` autonomously**. Outside it, writes require Max's express permission or a clearly delegated scope.
+- Architect may maintain files **inside `architect/` autonomously**. The architect also has standing authority **and responsibility** to keep the project's canonical truth documentation up to date with decisions actually agreed with Max, without asking for a second approval to record them. Architect may author task briefs/work orders in the repository from agreed plans. This does not authorize silently changing product decisions, writing implementation code or inventing approval for speculative proposals.
 - One fact/decision has one canonical home. Never maintain a second conflicting copy in `architect/`.
 - Current notes record the discussion; they do **not** authorize producing role prompts, executable code, or a working Director before Max approves.
 - This repository is **PUBLIC**: do not publish raw chat histories, personal data, credentials, private project code, or unreviewed confidential artifacts here.
