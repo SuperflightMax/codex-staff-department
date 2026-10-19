@@ -30,3 +30,5 @@ Staff Department GitHub repository is PUBLIC. Do not publish sensitive personal 
 - **Git completion:** local commits are useful intermediate checkpoints, but a **finished task must be committed and pushed to its remote repository**. Commit without push is not delivery. Do not silently infer authorization to merge into an integration/main branch.
 - **Build order:** first align and author the necessary universal roles and instructions, then implement/test a minimal Staff Director for hire/update/release of independent Codex sessions. Design reusable project scaffolding/bootstrap **after** that, not before.
 - The present discussion is being synchronized. The user has **not yet issued final authorization** to author role templates or implement the Director.
+
+- **Work journals and logs are append-only.** Existing log records are never rewritten, edited, or silently replaced. New events/corrections are appended as new entries. This rule applies specifically to historical work logs, not to current-state files or canonical specifications, which must remain editable to reflect current truth.
