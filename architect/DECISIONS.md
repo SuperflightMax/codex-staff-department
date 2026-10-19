@@ -23,3 +23,10 @@ Updated 2026-10-19. This file separates **explicit Max choices** from suggestion
 
 ## Care with public repo
 Staff Department GitHub repository is PUBLIC. Do not publish sensitive personal profile data, private chats, tokens, credentials, or private repository material. Keep human-collaboration guidance focused on work behavior and scoped audiences.
+## Additional explicit decisions, 2026-10-19
+
+- **Real benefit rule:** Every new rule, check, abstraction or mechanism must solve an actual problem or bring an identifiable improvement. Novelty, conventions and hypothetical future needs are insufficient reasons. KISS is the overriding design constraint.
+- **Canonical Playbook:** keep **one** authoritative universal Playbook in Staff Department; role library here, optional project-specific role instructions in their respective project repositories. Public-repository privacy for the imported source Playbook must be resolved before publishing it.
+- **Git completion:** local commits are useful intermediate checkpoints, but a **finished task must be committed and pushed to its remote repository**. Commit without push is not delivery. Do not silently infer authorization to merge into an integration/main branch.
+- **Build order:** first align and author the necessary universal roles and instructions, then implement/test a minimal Staff Director for hire/update/release of independent Codex sessions. Design reusable project scaffolding/bootstrap **after** that, not before.
+- The present discussion is being synchronized. The user has **not yet issued final authorization** to author role templates or implement the Director.
