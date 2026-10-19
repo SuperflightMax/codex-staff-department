@@ -1,46 +1,38 @@
-# Current design context — Staff Department
-Updated 2026-10-19. **Discussion baseline; no permission yet to implement.**
+# Контекст проектирования
 
-## North star
-Build genuinely useful products, not satisfy tasks/checklists. KISS is a **binding governing constraint**, not a suggestion. Every step, test, report, safety layer, abstraction and token expenditure needs an actual purpose. Do not build a corporation, process gates, or generic frameworks. Trust Max and known collaborators. Security/compatibility hardening beyond real demonstrated needs requires explicit Max approval. Before a public release, replace obsolete implementation cleanly rather than carry old compatibility baggage without an actual consumer.
+Обновлено 19 октября 2026 года. Это рабочая память разговора; текущие нормы — в [Playbook](../PLAYBOOK.md), профессии — в [каталоге](../roles/README.md), объём первого запуска — в [спецификации](../specs/STAFF_V0.md).
 
-## Organization
-- **Staff Director**: one replaceable on-demand Codex agent with its own Git-backed role library. Not a general manager, CTO, scheduler of product work, or permanent thinking LLM. Provides independent Codex chats/sessions (NOT subagents), selecting role, model, reasoning and the right assembled instructions. Requested CTO by Max; workers by Lead; team Lead requested by CTO. Max can explicitly request any specialist for any project.
-- **CTO**: one logical position per project; session may be replaced. Receives a high-level assignment; first explains understanding, material questions, alternatives and an initial plan to Max for alignment. With approval, decomposes and assigns work, ideally to a Lead/team; for trivial tasks can suggest skipping Lead/team, with Max approving that exception. Protects actual product, reviews meaningful diffs and results, accepts/rejects, reasons about failures and interventions, calibrates time expectations and proactively reaches Max only when a real decision is needed. CTO has no obligation to know or contact a ChatGPT architect.
-- **Lead** (formerly Orca): coordinates one team/task package, passes tasks to workers and QA, handles correction loops and progress; reports key events/blockers to CTO, not every detail. Teams may work in parallel by Max's decision.
-- **Specialists**: selected per task, never obligatorily deployed all at once. Builder implements within instructions and approved scope; QA verifies relevant risk and actual user outcomes; Worker handles mechanical chores; UX / creative concept artist / other experts are available on demand. A role is a repeatable template; an agent is an independently addressable session with an ID.
-- **Architect (ChatGPT conversation)**: Max invokes this role when needed. It is separate from the Codex staff hierarchy. Architect is co-owner with Max of canonical design truth, maintains design conversation context, documents nuanced decisions, reasons, tradeoffs and revisions. CTO can update factual implementation/project records as delegated. ChatGPT may read private GitHub repos through the connected integration. No mandatory ChatGPT Project uploads or CTO→architect communications.
+## От какой мороки избавляемся
 
-## Director duties (v0 aim)
-Hire: select model/reasoning; combine universal collaboration principles + role + project overlay + exact request. Return agent ID to requesting agent. If a project needs an instruction folder and lacks one, create project-scoped templates only for roles actually used, without overwriting existing project truth.
-Release: archive sufficient work/session transcript, timing, outcome and necessary context, then remove session from Codex app so chats do not pile up. Do not force an LLM to compose long evidence bundles. Keep agent's **current recoverable work state** in project repo while active; archived history is for retrospective diagnosis, not prompt context.
-Refresh: on changes to common/role/project instructions, find affected live agents; deliver small compatible updates in-place, or replace incompatible agent after preserving state. Director itself must be recreatable from its repository and docs.
-Future: scripted staff/activity reporting on request, minimal registry, and cross-project watchdog integration. Never turn Director into product manager.
+Max регулярно запускает разные проекты. Раньше приходилось искать общие инструкции, переносить их в каждый новый чат, вручную собирать роли и носить результаты между исполнителями. Качество зависело от того, нашёл ли он нужный текст сегодня. Дополнительно накапливались ненужные чаты, checkout и громоздкие отчёты.
 
-## Project state and agent recovery
-- Git repo is canonical and portable; chat memory and compression cannot be trusted for continuity.
-- Separate product truth (specs/decisions/architecture) from agent working state (task queue, assignment, open issues, current next actions, runtime identity, estimates, workspaces). Provide standardized but light project locations. Respect existing conventions rather than duplicating docs.
-- Agents may keep their context within the same productive assignment; fresh sessions when context degrades, role changes materially, or task ends. After release retain an archive, not the whole transcript in new workers' context.
-- Avoid uncontrolled extra checkouts/worktrees; clean all temporary QA artifacts/clones after use.
-- Important problems, failed approaches, corrections from Max and process lessons should be recorded to avoid repeating mistakes, but not promoted automatically to permanent universal rules.
+Staff должен снимать эту работу, а не добавлять новую организационную обязанность. Рабочая библиотека нужна прежде всего Max. Публичность — возможность поделиться, не требование превратить его подход в универсальный средний вкус.
 
-## Time and outcomes
-- CTO estimates approximate elapsed time when task is assigned and revisits accuracy against results. Usually work lasting >~1 hour is a signal to inspect decomposition, not an unconditional deadline; some tasks naturally take longer.
-- A simple shared watchdog may poll roughly every **10 minutes** (provisional preference), compare actual progress to estimates and nudge an active CTO for a meaningful delay. CTO investigates Lead or work directly; never auto-kill solely because of timer.
-- Keep small machine-readable or plain-text records: task ID, agent ID, project, role, model/reasoning, start/end, estimate vs actual, outcome, key events and references to archived logs. Use existing Codex events where possible, no verbose manually-written evidence.
-- An unsuccessful technical attempt is an outcome to record; the *goal* still governs whether work is complete. Iterate intelligently; avoid polishing proof of failure instead of solving.
+## Уточнения, которые важно не потерять
 
-## Quality / execution
-- CTO gives each role the right **task granularity**: requirements specific to this work, not repetitive copies of permanent role instructions.
-- Builder should know how to implement and avoid product-level invention; low/unnecessary reasoning can cause scope creep as much as underthinking can cause mistakes.
-- QA is scoped to the current stage and risk. Focused testing now; broader regression/pre-release testing when integrated product is ready. Never test every hypothetical corner case merely because it can be imagined.
-- Usability QA: actually try controls with mouse/touch, discover actions, check what happens and whether it serves a **human's** goal; not just a handler, DOM, accessibility score, or generic UI convention. Audience varies: Max alone, a handful of known people or public users.
-- Inspector/Reviewer is a **fresh, conditional independent reviewer**, including goal alignment and the product experience, not an automatic gate; CTO owns daily continuity and acceptance.
-- Visual concept/creative role first investigates brief, references, styles and suitability; draws only when direction is understood. Distinct from production art.
-- Worker/Service Operator does precise packaging/moves/copying/cleanup without redesign, audits, unsolicited checks or sprawling evidence.
-- OOP, generic wrappers, safety rails, backwards compatibility, processes and security overengineering are not defaults. Ask Max before significant systemic additions.
+- KISS — главный принцип, не добрый совет. Новая функция/правило должна объясняться реальной пользой, как покупка нового телефона: новизна сама по себе ничего не добавляет.
+- Нужен полный каталог полезных известных профессий, не искусственное ограничение семью. Но наличие профессии не запускает её на каждом задании.
+- Директор — кадровик, не точка управления всеми проектами. Он получает запрос, создаёт и выдаёт, обновляет и забирает агента. Не нужно делать из него Jarvis.
+- CTO — логический пост проекта. Он может быть новым чатом и продолжить с тех же фактов. Он не просто принимает красивые отчёты: проверяет цель, значимые diff/код и полезность процесса.
+- Последнее разграничение: архитектор пишет **спецификации и границы этапов**, не таски для исполнителей. CTO сам получает техническую информацию, выбирает исполнение и составляет задачи.
+- Перед новым этапом CTO объясняет понимание Max, предлагает план и существенные альтернативы. Затем действует без микроподтверждений. Прямой маршрут без Lead и несколько команд сначала согласуются.
+- Прежнее имя Орка отменено в пользу Lead. Consultant отдельно не создаётся: это часть CTO. Inspector остаётся условным независимым взглядом, а не ежедневным вторым CTO.
+- Концепт-арт — отдельная творческая работа: понять направление, найти референсы, обсудить подходящее, затем рисовать. Max часто общается с таким специалистом напрямую.
+- Usability QA должен реально пробовать человеческий сценарий. Кнопка в коде, стандартная форма и галочка доступности не заменяют удобство в понимании Max.
+- QA ограничивается реальной стадией. Полный предрелизный регресс — не задача каждого раннего прохода. После себя QA убирает временные копии и артефакты.
+- Работники сохраняют здоровый контекст внутри работы. Не нужны постоянные новые чаты; не нужна и надежда на вечную память старого.
+- Сырая история сохраняется для будущего разбора, **не** для подмешивания целиком каждому новому агенту. Журнал append-only, текущая картина редактируется.
+- Логи сохраняем локально. Не заставляем LLM просматривать каждый байт перед публикацией: сами сырые разговоры в публичный Staff не публикуем. Вопрос удалённой резервной копии ещё открыт.
+- Полезная работа и состояние отправляются в Git. Commit без push на завершённой работе не снимает ручной перенос; merge при этом отдельно.
+- Обычно задача длительностью больше часа — повод посмотреть разбиение. Это не механическая граница. Будущий общий watchdog около 10 минут должен замечать отклонение от оценки, не просто активность.
+- Не строим сейчас автоматический анализ логов. Сохраняем данные и важные замечания, чтобы позже понять повторяющиеся грабли.
 
-## Models and external interfaces
-Model/reasoning are role- and problem-dependent; Max has preferred GPT-5.6 Sol for Codex, avoids GPT-6.x for execution based on observed behavior. CTO may selectively escalate reasoning/change agent based on a cause, not blindly.
-Telegram notification bridge, Dot, generic CEO/GM hierarchy, project boilerplate/bootstrap and rich staff analytics are **deferred questions**, not implemented requirements.
-Architect prefers fast conversational exchange; deep/pro reasoning reserved for major design, tasks and final review. Meaningful knowledge capture, not a Git write after every conversational reply.
+## Что сознательно не связываем
+
+CTO не обновляет ChatGPT Project, не использует личный браузер Max и не обязан знать, какой чат/модель сейчас архитектор. Обмен проектными материалами идёт через репозиторий. Dot и Telegram пока не участвуют.
+
+Первоначальная реализация опирается на независимые чаты установленного Codex. Точные возможности машины проверяются локально; прошлые уверенные описания отдельных API в разговоре не считать испытанием этой установки.
+
+## Про сохранение разговора
+
+Max предпочитает быстрые обсуждения и глубокий режим на спецификациях/финальном ревью. Нельзя превращать сохранение контекста в длинный ритуал каждого ответа. Сохраняем смысловые переходы, включая детали и причины, не только заголовки решений. Новый чат начинает с START_HERE, а не просит Max повторить весь путь.

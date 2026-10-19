@@ -1,23 +1,30 @@
-# Open and deferred questions — Staff Department
-Updated 2026-10-19. **Not a task queue or implementation mandate.** These ideas were discussed but not finally specified.
+# Открытое и отложенное
 
-1. **Agent context life**: How long reuse healthy existing sessions? What signals identify deteriorating context before compaction, and when to fresh-start vs hot-update? Do not impose arbitrary churn.
-2. **Instruction versioning / propagation**: Trigger from Git changes or manual request? Which project overlays count? How to update busy threads without disrupting useful work; how to confirm adoption. Keep minimum per-agent versions/IDs.
-3. **Recoverable state schema**: Minimal portable current-work checkpoint for CTO, Lead and specialists; how to avoid redundant product truth, stale links or copying full chats.
-4. **Director runtime / interface**: Exact invocation mechanism from independent Codex chats, registry format, archive format and safe session deletion; prove actual Codex APIs in a small prototype.
-5. **Concurrency and ownership**: how many simultaneous Leads/teams/projects; shared worktree hygiene, scoped working directories, edits collision; who holds and releases a worker.
-6. **Watchdog**: Simple shared scheduler ~10-minute provisional poll; which true progress signals and estimated time threshold prompt a CTO; what happens if CTO/Codex/host is offline; no automatic killing merely for slowness.
-7. **Time estimation learning**: minimal estimate/actual/error history and how to calibrate over multiple tasks without elaborate analytics.
-8. **Reports**: second-phase scripted query: who active, time worked, accomplished outcomes/failures today. Logs vs transcripts and storage policy. Director requested only; no permanent monitoring LLM.
-9. **Project lifecycle**: bootstrap new private/public repo, canonical docs and role overlays without templated bureaucracy, and adopt existing projects without overwriting conventions; later than initial role/Director design.
-10. **Possible General Manager/CEO**: overarching multiple-project view (distinct from Staff Director). Concept parked.
-11. **CTO role self-review**: avoid CTO protecting its own mistakes; decide when a fresh independent Inspector is valuable vs needlessly procedural.
-12. **Roles**: confirm initial full role catalog and names, particularly Concept Artist vs Visual Designer/Art Agent, Inspector, UX vs Usability QA vs Visual QA, DevOps vs Release Engineer, technical QA, Worker, Documentation Steward, Investigator, Researcher. No arbitrary seven-role cap.
-13. **Architect persistence UX**: short user custom-instructions block to trigger architect mode for any repo; incremental write points without delaying each quick conversation. Draft after approval.
-14. **Future external interfaces**: Telegram CLI bot for notification/escalation, Dot, custom local UI. Deliberately deferred.
-15. **Review/QA**: decide when focused QA or no QA is appropriate and when separate pre-release regression is justified, without mandatory universal gates.
-16. **Authority and security exceptions**: apply low-ceremony trust defaults but explicitly determine real risk boundaries for public users, payments, valuable data and credential exposure case by case, not generic theatre.
-17. **Architect's canonical-document edit authority:** autonomy is currently scoped to `architect/`, while canonical specs may live elsewhere. Should the architect have standing write permission to update *already approved* project truth outside `architect/`, or seek permission each time? No implicit expansion.
-18. **Public Staff repository and Playbook privacy:** original v1.3 contains an explicit health diagnosis and personal communication-style description, though no obvious passwords/addresses. Architect recommends publishing one public-safe canonical Playbook (remove diagnoses; preserve behavior); decision to keep public or switch private is Max's.
-19. **Work history archive location:** working state and deliverables stay in project Git; provisional raw append-only logs stay locally to avoid publishing sensitive data. Exact path, retention and recovery/backup deferred until the pilot; raw logs must not flood active agent context.
-20. **Finished task boundary:** distinguish completed/accepted deliveries from partial progress and diagnostic failures. Final deliverables require commit and remote push, but no automatically authorized merge.
+Обновлено 19 октября 2026 года. Это не скрытое разрешение реализовать весь список.
+
+## Проверить в первом живом пилоте
+
+- Какие межсессионные инструменты доступны текущему локальному Codex: независимый чат, сообщения, модели, полный доступный экспорт и настоящее удаление? Нужен ли маленький адаптер?
+- Видны ли созданные сессии в нужном проекте приложения и можно ли продолжить их с другого уполномоченного клиента без конкурирующих ходов?
+- Какая из разрешённых моделей и уровней реально работает? Имена из UI не считать автоматически корректными API ID.
+- Достаточен ли выбранный минимальный реестр для возврата и восстановления после перезапуска? Локальный каталог не является удалённым backup.
+- Как применяются совместимые изменения на этой версии Codex и где требуется новая сессия? Не предполагать, что сообщение заменило исходную инструкцию.
+
+## После ролей и рабочего директора
+
+- Стандарт рабочего места проекта: канонические спецификации, очередь и приоритеты, активные/законченные задания, состояние агентов, проектные дополнения. Не навязывать готовым проектам новую структуру ради порядка.
+- Bootstrap CTO для новой идеи: создать/подключить репозиторий и минимальную нужную основу, затем организовать работу. Это следующая тема, не первый запуск кадровика.
+- Общий watchdog: ориентир Max около 10 минут, отклонение от начальной оценки и реальный прогресс вместо автоматического убийства по таймеру.
+- Сценарии машинного сбоя: автостарт, потеря диска, резервирование локального кадрового реестра и сырых журналов. Нынешнее хранение переживает закрытие чата, но не гарантирует сохранность при утрате машины.
+- Отчёт по запросу: сколько сотрудников, кто чем занят, что сделано, оценка/факт и причины неудач. Основное собирает скрипт, LLM дополняет только недостающее. Не ручная археология всех чатов.
+- Калибровка оценок, учёт очереди/ожидания, анализ повторяющихся граблей. Сначала реальные записи, потом решение о полезной аналитике.
+- Когда контекст пора заменить, а когда лучше сохранить: без произвольного числа сообщений/токенов и без постоянной перегенерации здоровых работников.
+- Архивы: срок хранения, разделение на части и резервная копия при сохранении append-only истории. Никакой автоматической чистки логов до решения.
+
+## Сознательно не сейчас
+
+Telegram-уведомления через существующего агента Max, Dot, General Manager/CEO и портфель проектов, собственный интерфейс, несколько компьютеров, облачный управляющий сервис, английский вариант инструкций.
+
+## Уже закрыто — не спрашивать заново
+
+Публичность репозитория; русский язык; право архитектора поддерживать проектную документацию; имя Max; удаление частных медицинских пояснений из новой редакции; спецификации от архитектора вместо исполнительских тасков; локальные сырые логи; append-only журнал; независимые чаты; Lead вместо Орки; CTO вместо отдельного Consultant; разрешение публиковать нынешнюю основу.
