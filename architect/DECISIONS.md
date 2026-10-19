@@ -11,7 +11,7 @@ Updated 2026-10-19. This file separates **explicit Max choices** from suggestion
 - CTO is the project-specific Max interface and quality/product-outcome steward; at start of a new task, present understanding, uncertainties, options and preliminary plan for Max to confirm before execution. CTO can suggest a direct worker instead of Lead for small tasks, pending Max approval.
 - Every agent and CTO should persist recoverable working state in Git-backed files, **not rely on chat or context compression**. Full history may be archived separately from active contexts.
 - QA must test the **actual intended capability and real human usability**; use stage-appropriate coverage and defer broad regression appropriately. Remove temporary testing artifacts at the end.
-- Staff Department architect may use **`architect/`** folder autonomously as its working memory, without treating it as a parallel product truth. Changes elsewhere in repository require Max's explicit approval/delegated permission. User's non-response to a suggestion never signifies agreement.
+- Staff Department architect may use **`architect/`** folder autonomously as its working memory, without treating it as a parallel product truth. The architect **must** maintain canonical project truth documentation wherever it lives, recording decisions already agreed with Max without repeat permission, and may write approved task briefs/orders directly into the repository. This does **not** grant license to change product decisions unilaterally or implement code without authorization. User silence is not agreement.
 - Architect is the custodian with Max of canonical design documentation; others may maintain it within delegated authority. The architect is **not** a Codex staff role for now; CTO does not need to coordinate with it. Connected GitHub is the reference source for code and project context, including private repositories.
 - **No implementation or role prompt authoring yet** until Max explicitly concludes discussion and approves.
 
@@ -32,3 +32,9 @@ Staff Department GitHub repository is PUBLIC. Do not publish sensitive personal 
 - The present discussion is being synchronized. The user has **not yet issued final authorization** to author role templates or implement the Director.
 
 - **Work journals and logs are append-only.** Existing log records are never rewritten, edited, or silently replaced. New events/corrections are appended as new entries. This rule applies specifically to historical work logs, not to current-state files or canonical specifications, which must remain editable to reflect current truth.
+
+## Documentation and log policy, clarified 2026-10-19
+- Canonical architectural/product documentation is updated after meaningful discussion and agreement; approved tasks can be recorded directly in Git by the architect, removing Max as a manual courier.
+- `architect/` is a portable conversation/context workspace in every project; it is not a second truth. Current state/specs stay editable, work history stays append-only.
+- Raw complete agent histories/logs: **local storage is the present direction**, exact format/location/backup still open; no requirement to publish raw logs into source Git.
+- Public vs private Staff repository: **not yet decided**. Inspect original Playbook for personal details before publication; public-safe rewriting is a proposal, not approved.
