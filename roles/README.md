@@ -20,6 +20,7 @@
 | usability-qa | [Usability QA](usability-qa.md) | Проверить, что человеку действительно удобно выполнить цель. |
 | visual-qa | [Visual QA](visual-qa.md) | Проверить видимый результат и соответствие выбранному визуальному решению. |
 | inspector | [Inspector / Reviewer](inspector.md) | Независимый свежий взгляд при конкретном основании. |
+| game-designer | [Game Designer](game-designer.md) | Спроектировать и настроить механики игры, интерес, сложность, игровой баланс и ощущения от управления. |
 | ux-designer | [UX Designer](ux-designer.md) | Спроектировать человеческий опыт взаимодействия, в том числе поведение во времени. |
 | ui-designer | [UI Designer](ui-designer.md) | Спроектировать конкретные экраны, компоновку, элементы и визуальные состояния интерфейса. |
 | concept-artist | [Concept Artist](concept-artist.md) | Найти подходящее творческое направление, референсы и концепт. |
