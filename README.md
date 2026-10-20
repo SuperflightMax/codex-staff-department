@@ -18,7 +18,7 @@
 
 | Файл | Назначение |
 |---|---|
-| [PLAYBOOK.md](PLAYBOOK.md) | Общие принципы работы и продукта. Единственная актуальная универсальная версия. |
+| [PLAYBOOK.md](https://github.com/SuperflightMax/Chatknows/blob/main/PLAYBOOK.md) | Канонические общие принципы работы с Max, в приватном Chatknows. Для агентов без доступа — [снимок здесь](PLAYBOOK.md). |
 | [roles/README.md](roles/README.md) | Каталог ролей и правила их применения. |
 | [MODELS.md](MODELS.md) | Выбор модели и reasoning без автоматического максимума. |
 | [specs/STAFF_V0.md](specs/STAFF_V0.md) | Границы первого рабочего кадрового цикла. |
